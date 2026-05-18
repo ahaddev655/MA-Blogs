@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-jasmine-white: #f9f8f6;
+  --color-silky-white: #efe9e3;
+  --color-muted-beige: #d9cfc7;
+  --color-light-beige: #c9b59c;
+}
+
+html {
+  @apply bg-jasmine-white;
+}
+
+.container-v2 {
+  @apply max-w-7xl mx-auto md:px-6 px-3;
+}
