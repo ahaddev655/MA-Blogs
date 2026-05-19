@@ -1,4 +1,10 @@
-import { ChevronDown, CircleUserRound } from "lucide-react";
+import {
+  Bookmark,
+  ChevronDown,
+  CircleUserRound,
+  TextAlignJustify,
+  X,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
@@ -82,82 +88,191 @@ function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // --- OffCanvas Logic ---
+  const [offCanvas, setOffCanvas] = useState(false);
   return (
-    <div className="h-20 bg-white shadow-lg border-b-2 border-silky-white">
-      <div className="container-v2 h-full flex items-center justify-between">
-        {/* Logo */}
-        <div>
-          <h1 className="text-xl font-semibold text-light-beige">MA Blogs</h1>
-        </div>
-        {/* Navigation Links & Dropdown */}
-        <div className="flex items-center justify-center gap-3">
-          {/* Navigation Links */}
-          <ul className="flex items-center justify-center gap-3">
-            {navigationLinks.map((item, i) => (
-              <NavLink
-                to={item.path}
-                end
-                key={i}
-                className={({ isActive }) =>
-                  `relative font-medium transition-colors duration-200 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-full before:rounded-xl before:bg-light-beige before:scale-x-0 before:origin-left before:transition-transform before:duration-200 before:ease-in-out hover:before:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-xl after:bg-light-beige after:scale-x-0 after:origin-left after:transition-transform after:duration-200 after:ease-in-out hover:after:scale-x-100 ${isActive ? "text-light-beige before:scale-x-100 after:scale-x-100" : "text-neutral-600 hover:text-light-beige"}`
-                }
-              >
-                <li>{item.label}</li>
-              </NavLink>
-            ))}
-          </ul>
-          {/* Dropdown */}
-          <div className="relative">
-            <button
-              ref={dropdownRef}
-              className="relative font-medium transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige flex items-center justify-center gap-0.5"
-              onClick={() => setDropdownToggle(!dropdownToggle)}
-            >
-              Categories
-              <ChevronDown
-                size={20}
-                className={`transition-transform duration-200 ease-in-out ${dropdownToggle ? "rotate-180" : "rotate-0"}`}
-              />
-            </button>
-            <AnimatePresence>
-              {dropdownToggle && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.25, ease: "easeInOut" }}
-                  className="absolute w-56 p-2 bg-jasmine-white rounded-xl border border-silky-white flex flex-col shadow-md mt-2"
+    <>
+      <header className="relative z-40 h-20 bg-white shadow-lg border-b-2 border-silky-white fade-in-top">
+        <div className="container-v2 h-full flex items-center justify-between">
+          {/* Logo */}
+          <div>
+            <h1 className="text-xl font-semibold text-light-beige">MA Blogs</h1>
+          </div>
+          {/* Desktop View */}
+          <div className="items-center justify-center gap-3 lg:flex hidden">
+            {/* Navigation Links */}
+            <ul className="flex items-center justify-center gap-3">
+              {navigationLinks.map((item, i) => (
+                <NavLink
+                  to={item.path}
+                  end
+                  key={i}
+                  className={({ isActive }) =>
+                    `relative font-medium transition-colors duration-200 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-full before:rounded-xl before:bg-light-beige before:scale-x-0 before:origin-left before:transition-transform before:duration-200 before:ease-in-out hover:before:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-xl after:bg-light-beige after:scale-x-0 after:origin-left after:transition-transform after:duration-200 after:ease-in-out hover:after:scale-x-100 ${isActive ? "text-light-beige before:scale-x-100 after:scale-x-100" : "text-neutral-600 hover:text-light-beige"}`
+                  }
                 >
-                  {dropdownLinks.map((item, i) => (
-                    <div key={i} className="flex flex-col">
-                      <Link
-                        to={item.path}
-                        className="font-medium px-3 py-2.5 rounded-md transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige hover:bg-neutral-50"
-                      >
-                        {item.label}
-                      </Link>
-                      {dropdownLinks.length - 1 > i && (
-                        <hr className="border-t border-muted-beige mx-3 my-1 opacity-60" />
-                      )}
-                    </div>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <li>{item.label}</li>
+                </NavLink>
+              ))}
+            </ul>
+            {/* Dropdown */}
+            <div className="relative">
+              <button
+                ref={dropdownRef}
+                className="relative font-medium transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige flex items-center justify-center gap-0.5"
+                onClick={() => setDropdownToggle(!dropdownToggle)}
+              >
+                Categories
+                <ChevronDown
+                  size={20}
+                  className={`transition-transform duration-200 ease-in-out ${dropdownToggle ? "rotate-180" : "rotate-0"}`}
+                />
+              </button>
+              <AnimatePresence>
+                {dropdownToggle && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    className="absolute z-30 w-56 p-2 bg-jasmine-white rounded-xl border border-silky-white flex flex-col shadow-md mt-2"
+                  >
+                    {dropdownLinks.map((item, i) => (
+                      <div key={i} className="flex flex-col">
+                        <Link
+                          to={item.path}
+                          onClick={() => setDropdownToggle(false)}
+                          className="font-medium px-3 py-2.5 rounded-md transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige hover:bg-neutral-50"
+                        >
+                          {item.label}
+                        </Link>
+                        {dropdownLinks.length - 1 > i && (
+                          <hr className="border-t border-muted-beige mx-3 my-1 opacity-60" />
+                        )}
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+          {/* Social Icons */}
+          <div className="flex items-center justify-center gap-2">
+            <button
+              type="button"
+              className="transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige"
+            >
+              <Link to={"/bookmarks"}>
+                <Bookmark
+                  strokeWidth={1.9}
+                  size={23}
+                  className="hover:fill-light-beige"
+                />
+              </Link>
+            </button>
+            <button
+              type="button"
+              onClick={redirect}
+              className="transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige"
+            >
+              <CircleUserRound strokeWidth={1.9} size={23} />
+            </button>
+            <button
+              type="button"
+              onClick={() => setOffCanvas(true)}
+              className="transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige lg:hidden block"
+            >
+              <TextAlignJustify strokeWidth={1.9} size={23} />
+            </button>
           </div>
         </div>
-        {/* Social Icons */}
-        <div>
-          <button
-            type="button"
-            onClick={redirect}
-            className="transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige"
-          >
-            <CircleUserRound strokeWidth={1.9} size={23} />
-          </button>
+      </header>
+      {/* OffCanvas */}
+      <div
+        className={`fixed bg-black/50 backdrop-blur-md w-full h-full inset-0 left-0 top-0 transition-opacity duration-200 ease-in-out z-50 ${offCanvas ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+      >
+        <div
+          className={`sm:w-xs w-full h-screen bg-white shadow-md py-4 transition-all duration-300 ease-in-out ${offCanvas ? "translate-x-0" : "-translate-x-10"}`}
+        >
+          {/* Logo & Button */}
+          <div className="flex items-center justify-between px-4">
+            {/* Logo */}
+            <div>
+              <h1 className="text-xl font-semibold text-light-beige">
+                MA Blogs
+              </h1>
+            </div>
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setOffCanvas(false)}
+              className="transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige"
+            >
+              <X />
+            </button>
+          </div>
+          {/* Divider */}
+          <hr className="my-4 border border-light-beige rounded" />
+          {/* Navigation Links */}
+          <div className="flex justify-center gap-3 flex-col px-4">
+            {/* Navigation Links */}
+            <ul className="flex flex-col justify-center gap-3">
+              {navigationLinks.map((item, i) => (
+                <NavLink
+                  to={item.path}
+                  end
+                  key={i}
+                  className={({ isActive }) =>
+                    `relative font-medium transition-colors duration-200 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-full before:rounded-xl before:bg-light-beige before:scale-x-0 before:origin-left before:transition-transform before:duration-200 before:ease-in-out hover:before:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-xl after:bg-light-beige after:scale-x-0 after:origin-left after:transition-transform after:duration-200 after:ease-in-out hover:after:scale-x-100 ${isActive ? "text-light-beige before:scale-x-100 w-fit after:scale-x-100" : "text-neutral-600 hover:text-light-beige"}`
+                  }
+                >
+                  <li>{item.label}</li>
+                </NavLink>
+              ))}
+            </ul>
+            {/* Dropdown */}
+            <div className="relative">
+              <button
+                className="relative font-medium transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige flex items-center justify-center gap-0.5"
+                onClick={() => setDropdownToggle(!dropdownToggle)}
+              >
+                Categories
+                <ChevronDown
+                  size={20}
+                  className={`transition-transform duration-200 ease-in-out ${dropdownToggle ? "rotate-180" : "rotate-0"}`}
+                />
+              </button>
+              <AnimatePresence>
+                {dropdownToggle && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    className="flex flex-col mt-2"
+                  >
+                    {dropdownLinks.map((item, i) => (
+                      <div key={i} className="flex flex-col">
+                        <Link
+                          to={item.path}
+                          className="font-medium py-2.5 rounded-md transition-colors duration-200 ease-in-out text-neutral-600 hover:text-light-beige hover:bg-neutral-50"
+                        >
+                          {item.label}
+                        </Link>
+                        {dropdownLinks.length - 1 > i && (
+                          <hr className="border-t border-muted-beige my-1 opacity-60" />
+                        )}
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

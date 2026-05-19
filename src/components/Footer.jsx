@@ -56,15 +56,15 @@ function Footer() {
   return (
     <div className="bg-white w-full">
       <div className="container-v2 flex gap-5 flex-wrap p-6">
-        <div className="grow">
+        <div className="grow text-center md:text-start">
           <h1 className="text-light-beige text-2xl font-semibold">MA Blogs</h1>
-          <p className="w-130 mt-1.5 text-neutral-400 text-sm">
+          <p className="max-w-130 mt-1.5 text-neutral-400 text-sm">
             MA Blogs is a platform where users sign in to write, read, and share
             blogs. Users can post articles with images, explore topics, and
             bookmark favorite blogs. It offers a simple, secure space for
             creativity, ideas, and knowledge sharing across readers and writers.
           </p>
-          <div className="flex items-center gap-3 mt-4">
+          <div className="flex items-center gap-3 mt-4 md:justify-start justify-center">
             {[
               { icon: FaInstagram, path: "#" },
               { icon: FaFacebook, path: "#" },
@@ -86,7 +86,7 @@ function Footer() {
         </div>
 
         {/* Fixed Grid Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 sm:gap-12 text-center md:text-start mx-auto sm:mx-0">
           {footerColumns.map((column, columnIndex) => (
             <div key={columnIndex} className="flex flex-col space-y-4">
               <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
