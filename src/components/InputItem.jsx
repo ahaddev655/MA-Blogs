@@ -1,5 +1,3 @@
-import React from "react";
-
 function InputItem({ label, value, onChange, name, id, type }) {
   return (
     <>
