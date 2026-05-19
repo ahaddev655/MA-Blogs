@@ -54,7 +54,8 @@ function Footer() {
     },
   ];
   return (
-    <div className="bg-white w-full">
+    <footer className="bg-white w-full">
+      {/* Main Footer */}
       <div className="container-v2 flex gap-5 flex-wrap p-6">
         <div className="grow text-center md:text-start">
           <h1 className="text-light-beige text-2xl font-semibold">MA Blogs</h1>
@@ -108,7 +109,18 @@ function Footer() {
           ))}
         </div>
       </div>
-    </div>
+      {/* Copyright */}
+      <div className="py-3 border-t border-light-beige">
+        <div className="container-v2 flex items-center justify-between gap-2.5 md:flex-row flex-col">
+          <p className="md:text-base text-sm text-center text-neutral-600 font-medium">
+            All rights reserved by MA Blogs Corporation
+          </p>
+          <p className="md:text-base text-sm text-center text-neutral-600 font-medium">
+            © 2026 MA Blogs. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
 

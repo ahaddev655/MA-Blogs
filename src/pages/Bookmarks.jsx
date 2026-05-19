@@ -1,10 +1,35 @@
 import { motion } from "framer-motion";
 import homeImage from "../assets/home-img.jpg";
 import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 function Bookmarks() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const perPage = 6;
+
   return (
-    <div className="container-v2 py-12">
+    <div className="container-v2 pb-12 pt-28">
+      <div>
+        <motion.h1
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.5 }}
+          className="text-2xl md:text-3xl font-semibold text-light-beige"
+        >
+          Bookmarks
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.8 }}
+          className="text-sm md:text-base text-neutral-400 mt-2"
+        >
+          Revisit your saved articles anytime and keep your favorite reads in
+          one place.
+        </motion.p>
+      </div>
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -20,7 +45,7 @@ function Bookmarks() {
               transition={{
                 duration: 0.4,
                 ease: "easeInOut",
-                delay: 0.5 + i * 0.25,
+                delay: 1 + i * 0.25,
               }}
               className="bg-muted-beige/10 border border-light-beige/20 rounded-xl text-center overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out"
               key={i}
@@ -44,7 +69,7 @@ function Bookmarks() {
                   How to Earn Money in 2 hours
                 </h1>
                 {/* Blog Description */}
-                <p className="line-clamp-3 font-medium text-neutral-800">
+                <p className="line-clamp-3 font-medium text-neutral-600">
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos,
                   inventore rem. Tempore, quas aliquid expedita debitis eaque
                   nulla itaque quasi consequuntur odio asperiores beatae sunt,
@@ -71,7 +96,36 @@ function Bookmarks() {
           ))}
       </motion.div>
       {/* Pagination */}
-      <div className=""></div>
+      <div className="mt-12">
+        <div className="flex items-center justify-center gap-3">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+            disabled={currentPage === 1}
+            className="w-10 h-10 bg-white shadow-lg rounded-lg grid place-items-center hover:-translate-y-1 group transition-transform duration-200 ease-in-out disabled:opacity-50 disabled:pointer-events-none"
+          >
+            <ChevronLeft
+              size={26}
+              strokeWidth={1.25}
+              className="text-neutral-700 group-hover:text-light-beige transition-colors duration-200 ease-in-out"
+            />
+          </button>
+
+          <div className="w-10 h-10 bg-white shadow-lg rounded-lg grid place-items-center">
+            <span className="text-neutral-500 font-medium">{currentPage}</span>
+          </div>
+
+          <button
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+            className="w-10 h-10 bg-white shadow-lg rounded-lg grid place-items-center hover:-translate-y-1 group transition-transform duration-200 ease-in-out"
+          >
+            <ChevronRight
+              size={26}
+              strokeWidth={1.25}
+              className="text-neutral-700 group-hover:text-light-beige transition-colors duration-200 ease-in-out"
+            />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

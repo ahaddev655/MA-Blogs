@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 function HomeSect() {
   return (
     <div
-      className="h-[90vh] bg-center bg-no-repeat bg-cover bg-fixed"
+      className="h-screen bg-center bg-no-repeat bg-cover bg-fixed"
       style={{ backgroundImage: `url(${homeImage})` }}
     >
-      <div className="flex items-center justify-center h-[90vh] relative">
+      <div className="flex items-center justify-center h-screen relative">
         {/* Overlay */}
         <div className="absolute w-full h-full bg-black/50 backdrop-blur-xs" />
         <div className="relative z-20 text-center flex flex-col items-center justify-center gap-3">

@@ -93,12 +93,12 @@ function Header() {
   const [offCanvas, setOffCanvas] = useState(false);
   return (
     <>
-      <header className="relative z-40 h-20 bg-white shadow-lg border-b-2 border-silky-white fade-in-top">
+      <header className="w-full z-40 h-20 bg-white/80 backdrop-blur-md shadow-lg border-b-2 border-silky-white fade-in-top fixed top-0 left-0">
         <div className="container-v2 h-full flex items-center justify-between">
           {/* Logo */}
-          <div>
+          <Link to={"/"}>
             <h1 className="text-xl font-semibold text-light-beige">MA Blogs</h1>
-          </div>
+          </Link>
           {/* Desktop View */}
           <div className="items-center justify-center gap-3 lg:flex hidden">
             {/* Navigation Links */}
@@ -109,7 +109,7 @@ function Header() {
                   end
                   key={i}
                   className={({ isActive }) =>
-                    `relative font-medium transition-colors duration-200 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-full before:rounded-xl before:bg-light-beige before:scale-x-0 before:origin-left before:transition-transform before:duration-200 before:ease-in-out hover:before:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-xl after:bg-light-beige after:scale-x-0 after:origin-left after:transition-transform after:duration-200 after:ease-in-out hover:after:scale-x-100 ${isActive ? "text-light-beige before:scale-x-100 after:scale-x-100" : "text-neutral-600 hover:text-light-beige"}`
+                    `relative font-medium transition-colors duration-200 ease-in-out after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:rounded-xl after:bg-light-beige after:transition-all after:duration-200 after:ease-in-out ${isActive ? "text-light-beige after:w-full" : "text-neutral-600 hover:text-light-beige"}`
                   }
                 >
                   <li>{item.label}</li>
@@ -224,7 +224,8 @@ function Header() {
                   end
                   key={i}
                   className={({ isActive }) =>
-                    `relative font-medium transition-colors duration-200 ease-in-out before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-full before:rounded-xl before:bg-light-beige before:scale-x-0 before:origin-left before:transition-transform before:duration-200 before:ease-in-out hover:before:scale-x-100 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-xl after:bg-light-beige after:scale-x-0 after:origin-left after:transition-transform after:duration-200 after:ease-in-out hover:after:scale-x-100 ${isActive ? "text-light-beige before:scale-x-100 w-fit after:scale-x-100" : "text-neutral-600 hover:text-light-beige"}`
+                    `relative font-medium transition-colors duration-200 ease-in-out after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:rounded-xl after:bg-light-beige after:transition-all after:duration-200 after:ease-in-out
+                   ${isActive ? "text-light-beige after:w-[20%]" : "text-neutral-600 hover:text-light-beige hover:after:w-[20%] after:w-0"}`
                   }
                 >
                   <li>{item.label}</li>
