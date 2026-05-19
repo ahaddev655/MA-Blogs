@@ -10,23 +10,23 @@ function HomeSect() {
     >
       <div className="flex items-center justify-center h-[90vh] relative">
         {/* Overlay */}
-        <div className="absolute w-full h-full bg-black/50" />
+        <div className="absolute w-full h-full bg-black/50 backdrop-blur-xs" />
         <div className="relative z-20 text-center flex flex-col items-center justify-center gap-3">
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: "easeInOut", delay: 0.5 }}
-            className="text-xs uppercase tracking-[0.3em] text-light-beige font-semibold"
+            className="text-sm uppercase tracking-[0.3em] text-light-beige font-bold"
           >
             A Curated Space For
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1.2 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeInOut", delay: 1 }}
-            className="text-5xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-linear-to-b from-silky-white to-muted-beige drop-shadow-sm"
+            className="text-5xl md:text-7xl font-black tracking-wide text-transparent bg-clip-text bg-linear-to-b from-silky-white to-muted-beige drop-shadow-sm"
           >
             MA BLOGS
           </motion.h1>
@@ -35,7 +35,7 @@ function HomeSect() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, ease: "easeInOut", delay: 1.5 }}
-            className="h-0.5 w-12 bg-light-beige mb-0.5 rounded-full opacity-60"
+            className="h-0.75 w-16 bg-linear-to-r from-transparent via-light-beige to-transparent mb-2 shadow-[0_0_8px_rgba(201,181,156,0.8)]"
           />
           <div className="flex items-center justify-center gap-3 sm:flex-row flex-col">
             <Link to={"#"}>

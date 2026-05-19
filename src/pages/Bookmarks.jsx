@@ -1,44 +1,14 @@
 import { motion } from "framer-motion";
-import homeImage from "../../assets/home-img.jpg";
+import homeImage from "../assets/home-img.jpg";
 import { Link } from "react-router-dom";
 
-function RecentBlogs() {
+function Bookmarks() {
   return (
-    <div className="py-12 container-v2">
-      {/* Heading */}
-      <div className="text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.5 }}
-          className="text-2xl md:text-3xl font-semibold text-light-beige"
-        >
-          Recent Blogs
-        </motion.h1>
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeInOut", delay: 1 }}
-          className="h-0.75 w-16 bg-linear-to-r from-transparent via-light-beige to-transparent my-1 shadow-[0_0_8px_rgba(201,181,156,0.8)] mx-auto"
-        />
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeInOut", delay: 1.5 }}
-          className="text-sm md:text-base text-neutral-400 mt-2"
-        >
-          Explore our latest blog posts and stay updated with fresh insights.
-        </motion.p>
-      </div>
-      {/* Mock Data */}
+    <div className="container-v2 py-12">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, ease: "easeInOut", delay: 2 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className="grid md:grid-cols-3 grid-cols-1 gap-4 mt-4"
       >
         {Array(6)
@@ -46,12 +16,11 @@ function RecentBlogs() {
           .map((_, i) => (
             <motion.div
               initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.4,
                 ease: "easeInOut",
-                delay: 2 + i * 0.2,
+                delay: 0.5 + i * 0.25,
               }}
               className="bg-muted-beige/10 border border-light-beige/20 rounded-xl text-center overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ease-in-out"
               key={i}
@@ -101,8 +70,10 @@ function RecentBlogs() {
             </motion.div>
           ))}
       </motion.div>
+      {/* Pagination */}
+      <div className=""></div>
     </div>
   );
 }
 
-export default RecentBlogs;
+export default Bookmarks;

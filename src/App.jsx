@@ -3,6 +3,7 @@ import "./App.css";
 import AuthenticationPage from "./pages/AuthenticationPage";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
+import Bookmarks from "./pages/Bookmarks";
 
 function App() {
   const routes = createBrowserRouter([
@@ -13,6 +14,10 @@ function App() {
         {
           index: true,
           element: <HomePage />,
+        },
+        {
+          path: "/bookmarks",
+          element: <Bookmarks />,
         },
       ],
     },
