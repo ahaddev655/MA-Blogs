@@ -37,10 +37,6 @@ function Header() {
       path: "/about",
       label: "About",
     },
-    {
-      path: "/contact",
-      label: "Contact",
-    },
   ];
   // --- Dropdown Toggle ---
   const [dropdownToggle, setDropdownToggle] = useState(false);
@@ -50,10 +46,6 @@ function Header() {
     {
       path: "/category/all",
       label: "All Blogs",
-    },
-    {
-      path: "/category/recents",
-      label: "Recents",
     },
     {
       path: "/category/health",
@@ -227,6 +219,7 @@ function Header() {
                     `relative font-medium transition-colors duration-200 ease-in-out after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:rounded-xl after:bg-light-beige after:transition-all after:duration-200 after:ease-in-out
                    ${isActive ? "text-light-beige after:w-[20%]" : "text-neutral-600 hover:text-light-beige hover:after:w-[20%] after:w-0"}`
                   }
+                  onClick={() => setOffCanvas(false)}
                 >
                   <li>{item.label}</li>
                 </NavLink>

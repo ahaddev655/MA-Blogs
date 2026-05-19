@@ -4,6 +4,9 @@ import AuthenticationPage from "./pages/AuthenticationPage";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import Bookmarks from "./pages/Bookmarks";
+import RecentsPage from "./pages/RecentsPage";
+import CategoryPage from "./pages/CategoryPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   const routes = createBrowserRouter([
@@ -18,6 +21,18 @@ function App() {
         {
           path: "/bookmarks",
           element: <Bookmarks />,
+        },
+        {
+          path: "/about",
+          element: <AboutPage />,
+        },
+        {
+          path: "/recents",
+          element: <RecentsPage />,
+        },
+        {
+          path: "/category/:category",
+          element: <CategoryPage />,
         },
       ],
     },

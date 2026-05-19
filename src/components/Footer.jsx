@@ -110,7 +110,7 @@ function Footer() {
         </div>
       </div>
       {/* Copyright */}
-      <div className="py-3 border-t border-light-beige">
+      <div className="py-3 border-t border-neutral-200">
         <div className="container-v2 flex items-center justify-between gap-2.5 md:flex-row flex-col">
           <p className="md:text-base text-sm text-center text-neutral-600 font-medium">
             All rights reserved by MA Blogs Corporation
