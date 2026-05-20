@@ -117,7 +117,7 @@ function RecentBlogs() {
                   <span className="text-xs uppercase text-light-beige font-semibold">
                     PERSONAL FINANCE
                   </span>
-                  <h1 className="line-clamp-1 truncate font-semibold text-[#A97E60] text-lg mb-2">
+                  <h1 className="line-clamp-1 truncate font-semibold text-[#a97e60] text-lg mb-2">
                     How to Earn Money in 2 hours
                   </h1>
                   <p className="line-clamp-3 font-medium text-neutral-800">
@@ -126,7 +126,7 @@ function RecentBlogs() {
                     eaque nulla itaque quasi consequuntur odio asperiores beatae
                     sunt...
                   </p>
-                  <Link to={"#"}>
+                  <Link to={`/blog/finance/${i + 1}`}>
                     <button className="mt-4 group relative px-6 py-2.5 font-semibold border-2 rounded-[34px] bg-transparent overflow-hidden transition-all duration-350 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-100 text-light-beige border-light-beige hover:text-neutral-700 hover:shadow-[0_0_20px_rgba(201,181,156,0.4)]">
                       <span className="absolute inset-0 m-auto w-12 h-12 rounded-full scale-0 -z-10 bg-light-beige transition-all duration-600 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[4]"></span>
                       Read More

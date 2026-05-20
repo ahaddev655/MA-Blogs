@@ -7,6 +7,8 @@ import Bookmarks from "./pages/Bookmarks";
 import RecentsPage from "./pages/RecentsPage";
 import CategoryPage from "./pages/CategoryPage";
 import AboutPage from "./pages/AboutPage";
+import BlogDetailsPage from "./pages/BlogDetailsPage";
+import UserLayout from "./layouts/UserLayout";
 
 function App() {
   const routes = createBrowserRouter([
@@ -34,11 +36,25 @@ function App() {
           path: "/category/:category",
           element: <CategoryPage />,
         },
+        {
+          path: "/blog/:category/:blog-id",
+          element: <BlogDetailsPage />,
+        },
       ],
     },
     {
       path: "/auth",
       element: <AuthenticationPage />,
+    },
+    {
+      path: "/u/",
+      element: <UserLayout />,
+      children: [
+        {
+          index: true,
+          element: "Overview",
+        },
+      ],
     },
   ]);
   return <RouterProvider router={routes} />;
