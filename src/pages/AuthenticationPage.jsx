@@ -10,10 +10,11 @@ function AuthenticationPage() {
   return (
     <div className="px-4 flex items-center justify-center h-screen bg-jasmine-white">
       <ToastContainer
-        theme="colored"
-        autoClose={1500}
-        position="top-center"
         hideProgressBar
+        theme="dark"
+        autoClose={1500}
+        closeButton={false}
+        position="top-center"
       />
       <motion.div
         initial={{ opacity: 0, y: -10 }}

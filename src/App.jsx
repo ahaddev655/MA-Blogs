@@ -9,6 +9,7 @@ import CategoryPage from "./pages/CategoryPage";
 import AboutPage from "./pages/AboutPage";
 import BlogDetailsPage from "./pages/BlogDetailsPage";
 import UserLayout from "./layouts/UserLayout";
+import OverviewPage from "./pages/user/OverviewPage";
 
 function App() {
   const routes = createBrowserRouter([
@@ -52,7 +53,7 @@ function App() {
       children: [
         {
           index: true,
-          element: "Overview",
+          element: <OverviewPage />,
         },
       ],
     },
