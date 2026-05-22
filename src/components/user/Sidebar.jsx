@@ -110,6 +110,7 @@ function Sidebar({ offCanvas, setOffCanvas }) {
                   const Icon = item.icon;
                   return (
                     <NavLink
+                      onClick={() => setOffCanvas(false)}
                       to={item.path}
                       key={i}
                       end
