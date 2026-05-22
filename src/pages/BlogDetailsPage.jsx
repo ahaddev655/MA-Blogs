@@ -73,7 +73,7 @@ function BlogDetailsPage() {
     <div className="container-v2 mt-28 pb-24 max-w-4xl mx-auto px-4 md:px-6">
       {/* Category */}
       <div className="py-1.5 px-3.5 rounded-full w-fit bg-muted-beige/40 border border-muted-beige/60 transition-all">
-        <span className="text-[11px] font-bold text-[#a97e60] tracking-widest uppercase">
+        <span className="text-[11px] font-bold text-text-secondary tracking-widest uppercase">
           Personal Finance
         </span>
       </div>
@@ -88,7 +88,7 @@ function BlogDetailsPage() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between py-4 border-y border-muted-beige mt-8 gap-4 bg-muted-beige/10 px-4 rounded-xl">
         <div className="flex items-center gap-3">
           {/* Profile Circle */}
-          <div className="bg-muted-beige text-[#a97e60] rounded-full w-12 h-12 grid place-items-center text-base font-bold shadow-sm ring-2 ring-light-beige/30">
+          <div className="bg-muted-beige text-text-secondary rounded-full w-12 h-12 grid place-items-center text-base font-bold shadow-sm ring-2 ring-light-beige/30">
             JD
           </div>
           <div>
@@ -104,27 +104,27 @@ function BlogDetailsPage() {
         {/* Metadata Badges */}
         <div className="flex items-center gap-4 text-neutral-600 self-end sm:self-auto">
           <div className="flex items-center gap-1.5 bg-white/50 px-2.5 py-1 rounded-md border border-muted-beige/40">
-            <Calendar size={15} strokeWidth={2} className="text-[#a97e60]" />
+            <Calendar size={15} strokeWidth={2} className="text-text-secondary" />
             <span className="text-xs font-medium text-neutral-600">
               22/10/2010
             </span>
           </div>
           <div className="flex items-center gap-1.5 bg-white/50 px-2.5 py-1 rounded-md border border-muted-beige/40">
-            <Clock size={15} strokeWidth={2} className="text-[#a97e60]" />
+            <Clock size={15} strokeWidth={2} className="text-text-secondary" />
             <span className="text-xs font-medium text-neutral-600">22:30</span>
           </div>
           <button
             onClick={handleBlogLike}
             className={`flex items-center gap-1.5 px-3 py-1 rounded-md border transition-all duration-200 active:scale-95 ${
               hasLikedBlog
-                ? "bg-[#a97e60] text-white border-[#a97e60]"
+                ? "bg-text-secondary text-white border-text-secondary"
                 : "bg-white/50 text-neutral-600 border-muted-beige/40 hover:border-light-beige"
             }`}
           >
             <ThumbsUp
               size={15}
               strokeWidth={2}
-              className={hasLikedBlog ? "text-white" : "text-[#a97e60]"}
+              className={hasLikedBlog ? "text-white" : "text-text-secondary"}
             />
             <span className="text-xs font-bold">{blogLikes}</span>
           </button>
@@ -133,7 +133,7 @@ function BlogDetailsPage() {
 
       {/* Main Content Body */}
       <article className="mt-8 text-neutral-600 text-base md:text-lg leading-relaxed space-y-6 max-w-none">
-        <p className="first-letter:text-4xl first-letter:font-bold first-letter:text-[#a97e60] first-letter:mr-2 first-letter:float-left">
+        <p className="first-letter:text-4xl first-letter:font-bold first-letter:text-text-secondary first-letter:mr-2 first-letter:float-left">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui labore,
           facilis eveniet quis excepturi perferendis, delectus nobis hic rerum
           sed vero tempore iusto natus, tenetur accusantium corporis quas
@@ -157,7 +157,7 @@ function BlogDetailsPage() {
       {/* --- Comment Section --- */}
       <section className="space-y-8">
         <div className="flex items-center gap-2">
-          <MessageSquare size={22} className="text-[#a97e60]" />
+          <MessageSquare size={22} className="text-text-secondary" />
           <h2 className="text-xl font-bold text-neutral-800">
             Discussion ({comments.length})
           </h2>
@@ -165,7 +165,7 @@ function BlogDetailsPage() {
 
         {/* New Comment Submission Box */}
         <form onSubmit={handlePostComment} className="flex gap-3 items-start">
-          <div className="hidden sm:grid bg-muted-beige text-[#a97e60] rounded-full w-10 h-10 place-items-center text-sm font-bold shadow-inner shrink-0">
+          <div className="hidden sm:grid bg-muted-beige text-text-secondary rounded-full w-10 h-10 place-items-center text-sm font-bold shadow-inner shrink-0">
             GU
           </div>
           <div className="flex-1 relative border border-muted-beige focus-within:border-light-beige rounded-xl bg-white/40 overflow-hidden transition-all duration-200">
@@ -180,7 +180,7 @@ function BlogDetailsPage() {
               <button
                 type="submit"
                 disabled={!commentInput.trim()}
-                className="flex items-center gap-1.5 px-4 py-1.5 bg-[#a97e60] hover:bg-[#a97e60]/90 text-white disabled:opacity-40 disabled:hover:bg-[#a97e60] font-medium text-xs rounded-lg shadow-sm transition-all"
+                className="flex items-center gap-1.5 px-4 py-1.5 bg-text-secondary hover:bg-text-secondary/90 text-white disabled:opacity-40 disabled:hover:bg-text-secondary font-medium text-xs rounded-lg shadow-sm transition-all"
               >
                 <Send size={12} />
                 <span>Comment</span>
@@ -197,7 +197,7 @@ function BlogDetailsPage() {
               className="flex gap-3 items-start p-4 rounded-xl border border-muted-beige/60 bg-white/30 backdrop-blur-xs transition-all hover:bg-white/50"
             >
               {/* Commenter Avatar */}
-              <div className="bg-muted-beige/70 text-[#a97e60] rounded-full w-9 h-9 grid place-items-center text-xs font-bold shrink-0">
+              <div className="bg-muted-beige/70 text-text-secondary rounded-full w-9 h-9 grid place-items-center text-xs font-bold shrink-0">
                 {comment.initials}
               </div>
 
@@ -221,7 +221,7 @@ function BlogDetailsPage() {
                     onClick={() => handleCommentLike(comment.id)}
                     className={`flex items-center gap-1 text-xs font-semibold transition-colors ${
                       comment.hasLiked
-                        ? "text-[#a97e60]"
+                        ? "text-text-secondary"
                         : "text-neutral-400 hover:text-neutral-600"
                     }`}
                   >
