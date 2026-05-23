@@ -54,9 +54,6 @@ function FormItem({ isLogin }) {
         });
         console.log("FORM DATA: ", formData);
       }, 1500);
-      setTimeout(() => {
-        navigate("/u/");
-      }, 2500);
       return;
     }
     // --- Sign In Logic ---
@@ -83,9 +80,6 @@ function FormItem({ isLogin }) {
       });
       console.log("FORM DATA: ", formData);
     }, 1500);
-    setTimeout(() => {
-      navigate("/u/");
-    }, 2500);
   };
   return (
     <form onSubmit={handleFormSubmit} className="space-y-5">

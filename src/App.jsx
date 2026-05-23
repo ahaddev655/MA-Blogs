@@ -8,10 +8,6 @@ import RecentsPage from "./pages/RecentsPage";
 import CategoryPage from "./pages/CategoryPage";
 import AboutPage from "./pages/AboutPage";
 import BlogDetailsPage from "./pages/BlogDetailsPage";
-import UserLayout from "./layouts/UserLayout";
-import OverviewPage from "./pages/user/OverviewPage";
-import ManageBlogs from "./pages/user/ManageBlogs";
-import AddBlogs from "./pages/user/AddBlogs";
 
 function App() {
   const routes = createBrowserRouter([
@@ -48,24 +44,6 @@ function App() {
     {
       path: "/auth",
       element: <AuthenticationPage />,
-    },
-    {
-      path: "/u/",
-      element: <UserLayout />,
-      children: [
-        {
-          index: true,
-          element: <OverviewPage />,
-        },
-        {
-          path: "blogs",
-          element: <ManageBlogs />,
-        },
-        {
-          path: "add",
-          element: <AddBlogs />,
-        },
-      ],
     },
   ]);
   return <RouterProvider router={routes} />;
